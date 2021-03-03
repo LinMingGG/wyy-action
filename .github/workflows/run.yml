@@ -20,14 +20,14 @@ jobs:
     - name: 初始化Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.7
+        python-version: 3.8
     - name: 签到
       run: |
         pip install -r requirements.txt
         
         user='${{ secrets.USER }}'
         pwd='${{ secrets.PWD }}'
-        SCKEY='${{ secrets.SCKEY }}'
+        SCKEY: ${{ secrets.SCKEY }}
         
         user_list=()
         pwd_list=()
