@@ -103,8 +103,7 @@ res=s.post(url,protect(json.dumps(postdata)))
 object=json.loads(res.text,strict=False)
 if object['code']==200:
     print("刷单成功！共"+str(count)+"首")
-    urlsckey = 'https://sc.ftqq.com/SCU95156T515985ffca658bf1b801c249e3ab77215ea134d35815f.send'
-    requests.post(urlsckey, data={"text": "网易云签到提醒", "desp": "刷单成功！共"+str(count)+"首"})
+    requests.post('https://sc.ftqq.com/SCU95156T515985ffca658bf1b801c249e3ab77215ea134d35815f.send', data={"text": "网易云签到提醒", "desp": "签到成功"})
     exit()
 else:
     print("发生错误："+str(object['code'])+object['message'])
