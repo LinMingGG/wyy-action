@@ -27,7 +27,6 @@ jobs:
         
         user='${{ secrets.USER }}'
         pwd='${{ secrets.PWD }}'
-        SCKEY='${{ secrets.SCKEY }}'
         
         user_list=()
         pwd_list=()
