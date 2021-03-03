@@ -98,12 +98,13 @@ url = "http://music.163.com/weapi/feedback/weblog"
 postdata={
     "logs":json.dumps(buffer)
 }
-SCKEY=os.environ["SCKEY"]
-url = 'https://sc.ftqq.com/'+SCKEY+'.send'
+
 res=s.post(url,protect(json.dumps(postdata)))
 object=json.loads(res.text,strict=False)
 if object['code']==200:
     print("刷单成功！共"+str(count)+"首")
+    SCKEY=os.environ["SCKEY"]
+    url = 'https://sc.ftqq.com/'+SCKEY+'.send'
     requests.post(url, data={"text": "网易云签到提醒", "desp": "刷单成功！共"+str(count)+"首"})
     exit()
 else:
